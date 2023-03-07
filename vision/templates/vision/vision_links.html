@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV-lab online</title>
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css.map' %}">
+</head>
+<body>
+    <div>
+        <h1 class="text-center">Online CV-Lab</h1>
+        <br>
+    </div>
+    <div class="row">
+        <table class="table-responsive text-center col-md-offset-1" style="width:80%; border: 1px solid black; font-size: 2em;">
+          <tr style="border: 1px solid black;">
+            <th class="col-md-3 text-center" style="border: 1px solid black; padding: 15px;">Algorithm</th>
+            <th class="col-md-3 text-center" style="border: 1px solid black; padding: 15px;">Parameters</th>
+            <th class="col-md-3 text-center" style="border: 1px solid black; padding: 15px;">Submit image</th>
+          </tr>
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">Face detection</td>
+            <td style="border: 1px solid black;">No required</td>
+            <td style="border: 1px solid black;"><a href="{% url 'submit_image_with_faces' %}">Submit image with face(s)</a></td>
+          </tr>
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">Thresholding</td>
+            <td style="border: 1px solid black;">One (threshold)</td>
+            <td style="border: 1px solid black;"><a href="{% url 'submit_image_with_threshold' %}">Submit image and set threshold</a></td>
+          </tr>
+          <tr style="border: 1px solid black;">
+            <td style="border: 1px solid black;">Canny</td>
+            <td style="border: 1px solid black;">Two (thresholds #1 and #2)</td>
+            <td style="border: 1px solid black;"><a href="{% url 'submit_canny' %}">Submit image and set thresholds</a></td>
+          </tr>
+        </table>
+    </div>
+
+
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

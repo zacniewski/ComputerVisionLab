@@ -1,0 +1,44 @@
+.jumbotron{
+    background-image: url('../../../img/VisionLab/images/jumbotron.jpg');
+    text-align: center;
+    color: white;
+    background-size: cover;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+}
+
+.navbar{
+    background-color: black;
+}
+
+.card{
+    width: 20rem;
+    float: left;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+}
+
+footer
+{
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    clear:both;
+    padding-top:50px;
+
+}
+
+#container{
+    margin-bottom: 10rem;
+
+}
+
+#card3{
+margin-bottom: 5rem;
+}

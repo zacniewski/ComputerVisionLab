@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thresholding</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style_new.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+            <a class="navbar-brand" href="/vision/">CV Lab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <div style="height:70px;"></div>
+
+    <div class="container" id="form">
+        <div class="row">
+            <div class="col">
+                <div class="wrapper">
+                    <div class="text-center">
+                        <h2>Images after thresholding</h2>
+                        <h3>Threshold value = {{ thr }}</h3>
+
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <h3 class="text-center">Original image (gray scale):</h3>
+                        <img src="{% static '/img/cv/th_original.jpg' %}" alt="Original" style="display: block;margin: auto;"/>
+                    </div>
+                    <hr class="colorgraph">
+                    <div class="col">
+                        <h3 class="text-center">Blurred image:</h3>
+                        <img src="{% static '/img/cv/th_blurred.jpg' %}" alt="Blurred" style="display: block;margin: auto;"/>
+                    </div>
+                    <hr class="colorgraph">
+                    <div class="col">
+                        <h3 class="text-center">Global Threshold:</h3>
+                        <img src="{% static '/img/cv/th1.jpg' %}" alt="Th1" style="display: block;margin: auto;"/>
+                    </div>
+                    <hr class="colorgraph">
+                    <div class="col">
+                        <h3 class="text-center">Adaptive Mean Thresholding:</h3>
+                        <img src="{% static '/img/cv/th2.jpg' %}" alt="Th2" style="display: block;margin: auto;"/>
+                    </div>
+                    <hr class="colorgraph">
+                    <div class="col">
+                        <h3 class="text-center">Adaptive Gaussian Thresholding:</h3>
+                        <img src="{% static '/img/cv/th3.jpg' %}" alt="Th3" style="display: block;margin: auto;"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="d-flex justify-content-center">
+                    <a href="{% url 'computer_vision_algorithms' %}">
+                        <button type="button" class="btn btn-outline-dark">Back to menu</button>
+                    </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© 2017/2018 Copyright: Grupa 145IC AMW </span>
+    </div>
+</footer>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
+</body>
+</html>

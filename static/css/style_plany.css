@@ -1,0 +1,20 @@
+table, tr, td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	text-align: center;	
+}
+
+td {
+	min-width: 15px;
+}
+
+.vertical-text {
+	-webkit-transform: rotate(-90deg);
+	width: 15px;
+}
+
+.dark-gray {
+	background-color: #d3d3d3;
+	font-weight: 700;
+}

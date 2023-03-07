@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style_new.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+            <a class="navbar-brand" href="/vision/">CV Lab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <div style="height:70px;"></div>
+    <div class="container" id="form">
+        <div class="text-center">
+            <h4>Values of both thresholds (from 1 to 255) could be changed <b>manually</b> in your browser's URL!</h4>
+            <hr class="colorgraph">
+                <h4 class="text-center">For example: www.zacniewski.pl/vision/canny-detector/<b>77/125/</b> (click ENTER!)</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Original image:</h2>
+                <img src="{% static '/img/cv/canny_original.jpg' %}" class="rounded mx-auto d-block">
+            </div>
+            <div class="col">
+                <h2 class="text-center">Image after Canny detection:</h2>
+
+                <img src="{% static '/img/cv/canny_edges.jpg' %}" class="rounded mx-auto d-block">
+            </div>
+        </div>
+        <br>
+                <h3 class="text-center">Threshold #1 = {{ thr1 }}, threshold #2 = {{thr2 }}.</h3>
+    </div>
+    <hr class="colorgraph">
+
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'computer_vision_algorithms' %}">
+            <button type="button" class="btn btn-outline-dark">Back to menu</button>
+        </a>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">© 2017/2018 Copyright: Grupa 145IC AMW </span>
+        </div>
+    </footer>
+
+
+    <script>
+        // validation
+        $("#myform2").validate({
+            rules: {
+                image_url: {
+                    required: true,
+                    url: true
+                }
+            }
+        });
+
+    </script>
+
+    <script>
+
+        $("#pressedButton").on("click", function () {
+            $("#threshold").show();
+        });
+    </script>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

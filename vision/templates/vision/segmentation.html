@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segmentacja obrazu</title>
+
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style_new.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+            <a class="navbar-brand" href="/vision/">CV Lab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <div style="height:70px;"></div>
+
+    <div class="container" id="form">
+        <div class="row">
+            <div class="col">
+                <div class="wrapper">
+                    <div class="text-center">
+                        <h2>Segmentation phases</h2>
+
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <div class="text-center">
+                            <h3 class="text-center">Original Image: </h3>
+                        </div>
+                       <img src="{% static '/img/cv/before_segmentation.jpg' %}" alt="Obrazek" class="rounded mx-auto d-block"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <h3 class="text-center">Sure background: </h3>
+                        <img src="{% static '/img/cv/sure_bg.jpg' %}" alt="Obrazek" class="rounded mx-auto d-block"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <h3 class="text-center">Sure foreground: </h3>
+                        <img src="{% static '/img/cv/sure_fg.jpg' %}" alt="Obrazek" class="rounded mx-auto d-block"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <h3 class="text-center">Markers of Watershed algorithm: </h3>
+                        <img src="{% static '/img/cv/markers.jpg' %}" alt="Obrazek" class="rounded mx-auto d-block"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="col">
+                        <h3 class="text-center">Your image after segmentation: </h3>
+                        <img src="{% static '/img/cv/segmentation.jpg' %}" alt="Segmentacja" class="rounded mx-auto d-block"/>
+                    </div>
+                    <hr class="colorgraph">
+
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'computer_vision_algorithms' %}">
+                            <button type="button" class="btn btn-outline-dark">Back to menu</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'computer_vision_algorithms' %}">
+            <button type="button" class="btn btn-outline-dark">Back to menu</button>
+        </a>
+    </div>
+
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">© 2017/2018 Copyright: Grupa 145IC AMW </span>
+        </div>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+    <script>
+        // validation
+        $("#myform6").validate({
+            rules: {
+                image_url: {
+                    required: true,
+                    url: true
+                }
+            }
+        });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progowanie</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style_new.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+        <a class="navbar-brand" href="/vision/">CV Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<div style="height:70px;"></div>
+ <div class="container" id="form">
+    <div class="row">
+        <div class="col">
+            <div class="wrapper">
+                <form action="/vision/thresholding/" method="post" id="myform">
+                      {% csrf_token %}
+                    <div>
+                        <h2>
+                            Paste URL of the image:
+                        </h2>
+                        <hr class="colorgraph">
+                        <br>
+                    </div>
+                    <div>
+
+                        <input type="url" name="image_url" class="form-control" style="width:100%;" id="image_url">
+                    </div>
+                    <div>
+                        <h2>
+                            Value of threshold (from 1 to 255):
+                        </h2>
+                        <hr class="colorgraph">
+                        <br>
+                    </div>
+                    <div>
+                        <input type="text" name="threshold" class="form-control text-center" style="width:30%;" id="threshold">
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" class="btn btn-lg btn-primary btn-block"
+                                style="font-size: 2em;" placeholder="KK">Send URL + threshold
+                        </button>
+                    </div>
+                </form>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="height: 30px"></div>
+
+<div class="d-flex justify-content-center">
+    <a href="{% url 'computer_vision_algorithms' %}">
+        <button type="button" class="btn btn-outline-dark">Back to menu</button>
+    </a>
+</div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© 2017/2018 Copyright: Grupa 145IC AMW </span>
+    </div>
+</footer>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
+<script>
+    // validation
+    $("#myform").validate({
+        rules: {
+            image_url: {
+                required: true,
+                url: true
+            },
+            threshold: {
+                required: true,
+                maxlength: 3,
+                number: true,
+                range: [1, 255]
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>

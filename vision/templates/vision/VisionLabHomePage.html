@@ -1,0 +1,111 @@
+{% extends 'vision/vision_base.html' %}
+{% load static %}
+
+{% block main %}
+<main class="mt-5">
+<div class="jumbotron jumbotron-fluid" id="jumbotron">
+    <h1 class="display-3" style="padding-top: 5%">Computer Vision Laboratory</h1>
+    <hr class="my-4">
+</div>
+<div class="container" id="about">
+    <div class="row justify-content-center" id="appSummary">
+        <h1>Przetwarzanie obrazów online</h1>
+    </div>
+    <div class="row justify-content-center">
+        <p class="lead">Sprawdź funkcjonalności naszej aplikacji!</p>
+    </div>
+</div>
+<div class="container" id="container">
+    <!--Card Light-->
+    <div class="card">
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+            <img src="{% static 'img/VisionLab/images/detect-faces-small.png' %}" class="img-fluid" alt="">
+            <a href="{% url 'detect_face_with_camera' %}">
+                <div class="mask"></div>
+            </a>
+        </div>
+        <!--/.Card image-->
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Detekcja twarzy z kamery</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim dui, imperdiet sed scelerisque in, pulvinar a turpis. Fusce est augue, gravida a tempus ullamcorper, luctus non purus.</p>
+            <a href="{% url 'detect_face_with_camera' %}" class="black-text d-flex flex-row-reverse">
+                <h5 class="waves-effect p-2">More <i class="fa fa-chevron-right"></i></h5>
+            </a>
+        </div>
+        <!--/.Card content-->
+    </div>
+    <!--/.Card Light-->
+
+    <!--Card Light-->
+    <div class="card">
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+            <img src="{% static 'img/VisionLab/images/eyeball-small.jpg' %}" class="img-fluid" alt="">
+            <a href="{% url 'computer_vision_algorithms' %}">
+                <div class="mask"></div>
+            </a>
+        </div>
+        <!--/.Card image-->
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Vision Lab</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim dui, imperdiet sed scelerisque in, pulvinar a turpis. Fusce est augue, gravida a tempus ullamcorper, luctus non purus.</p>
+            <a href="{% url 'computer_vision_algorithms' %}" class="black-text d-flex flex-row-reverse">
+                <h5 class="waves-effect p-2">More <i class="fa fa-chevron-right"></i></h5>
+            </a>
+        </div>
+        <!--/.Card content-->
+    </div>
+    <!--/.Card Light-->
+
+    <!--Card Light-->
+    <div class="card" id="card3">
+        <!--Card image-->
+        <div class="view overlay hm-white-slight">
+            <img src="{% static 'img/VisionLab/images/colors-small.jpg' %}" class="img-fluid" alt="">
+            <a href="{% url 'detect_color_with_camera' %}">
+                <div class="mask"></div>
+            </a>
+        </div>
+        <!--/.Card image-->
+        <!--Card content-->
+        <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">Rozpoznanie kolorów</h4>
+            <hr>
+            <!--Text-->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus enim dui, imperdiet sed scelerisque in, pulvinar a turpis. Fusce est augue, gravida a tempus ullamcorper, luctus non purus.</p>
+            <a href="{% url 'detect_color_with_camera' %}" class="black-text d-flex flex-row-reverse">
+                <h5 class="waves-effect p-2">More <i class="fa fa-chevron-right"></i></h5>
+            </a>
+        </div>
+        <!--/.Card content-->
+    </div>
+    <!--/.Card Light-->
+
+</div>
+</main>
+{% endblock main %}
+
+{% block stopka %}
+    <!--Footer-->
+    <footer class="page-footer black center-on-small-only" id="footer">
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid" style="color:white;">
+                © 2017/2018 Copyright: Grupa 145IC AMW
+            </div>
+        </div>
+        <!--/.Copyright-->
+    </footer>
+    <!--/.Footer-->
+{% endblock stopka %}

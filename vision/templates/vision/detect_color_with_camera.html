@@ -1,0 +1,94 @@
+{% extends 'vision/vision_base.html' %}
+{% load static %}
+
+{% block additional_scripts_in_head %}
+    <!--<link rel="stylesheet" href="{% static 'tracking.js-master/examples/assets/style_detect_faces_with_camera.css' %}">-->
+    <link rel="stylesheet" href="{% static 'tracking.js-master/examples/assets/demo.css' %}">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>-->
+    <script src="{% static 'tracking.js-master/build/tracking-min.js' %}"></script>
+    <!--<script src="{% static 'tracking.js-master/build/data/face-min.js' %}"></script>
+    <script src="{% static 'tracking.js-master/build/data/eye-min.js' %}"></script>
+    <script src="{% static 'tracking.js-master/build/data/mouth-min.js' %}"></script>-->
+    <script src="{% static 'tracking.js-master/node_files/dat.gui.min.js' %}"></script>
+    <script src="{% static 'tracking.js-master/examples/assets/stats.min.js' %}"></script>
+    <script src="{% static 'tracking.js-master/examples/color_camera_gui.js' %}"></script>
+
+
+  <!--  <style>
+        video, canvas {
+            margin-left: 230px;
+            margin-top: 120px;
+            position: absolute;
+        }
+    </style>
+
+<link rel="stylesheet" href="css/demo.css">
+
+  <script src="./build/tracking-min.js"></script>
+  <script src="./build/dat.gui.min.js"></script>
+  <script src="./build/stats.min.js"></script>-->
+
+  <style>
+  video, canvas {
+    margin-left: 100px;
+    margin-top: 35px;
+    position: absolute;
+  }
+  .dg .c input[type="text"] {
+            margin-top: 0px;
+            padding: 0px;
+            }
+  </style>
+
+{% endblock additional_scripts_in_head %}
+
+
+{% block main %}
+
+    <div class="content-wrapper">
+        <div class="container-fluid justify-content-center">
+
+            <!--<div class="demo-frame">
+                <div class="demo-container">
+                    <video id="video" width="400" height="400" preload autoplay loop muted></video>
+                    <canvas id="canvas" width="400" height="400"></canvas>
+                </div>
+            </div>-->
+            <div class="demo-frame">
+                <div class="demo-container">
+                  <video id="video" width="600" height="450" preload autoplay loop muted controls></video>
+                  <canvas id="canvas" width="600" height="450"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock main %}
+
+{% block additional_scripts_in_body %}
+    <script>
+        window.onload = function() {
+          var video = document.getElementById('video');
+          var canvas = document.getElementById('canvas');
+          var context = canvas.getContext('2d');
+          var tracker = new tracking.ColorTracker();
+          tracking.track('#video', tracker, { camera: true });
+          tracker.on('track', function(event) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            event.data.forEach(function(rect) {
+              if (rect.color < '#FFFFFF' && rect.color>'#000000') {
+                rect.color = tracker.customColor;
+              }
+              context.strokeStyle = rect.color;
+              context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+              context.font = '11px Helvetica';
+              context.fillStyle = "#fff";
+              context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
+              context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+            });
+          });
+         initGUIControllers(tracker);
+        };
+    </script>
+{% endblock additional_scripts_in_body %}

@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style_new.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+        <a class="navbar-brand" href="/vision/">CV Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+        <h1 class="display-3 ">O projekcie słów kilka ...</h1>
+    </div>
+</div>
+
+<div class="container">
+    <blockquote class="blockquote bq-primary">
+        <h2 class="bq-title text-center">Computer Vision Laboratory</h2><br>
+        <p>Główny projekt jest złożony z trzech niezależnych części:</p>
+        <p>1. Pierwszy moduł umożliwia wykrycie naszej twarzy przez kamerę oraz dodatkowo pozwala na nakładanie filtrów, które modyfikują nasz wygląd.</p>
+        <p>2. Drugi moduł to Vision Lab, który zawiera następujące funkcje:</p>
+        <ul class="list-group text-center">
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">1</span> Detekcja twarzy na zdjęciu</li>
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">2</span> Progowanie obrazu</li>
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">3</span> Detekcja krawędzi</li>
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">4</span> Wykrywanie punktów kluczowych obrazu</li>
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">5</span> Zliczanie monet na podstawie ich konturów</li>
+            <li class="list-group-item"><span class="badge badge-primary badge-pill">6</span> Segmentacja obrazu</li>
+
+        </ul><br>
+       <p>3. Trzeci moduł umożliwia wykrywanie w czasie rzeczywistym kolorów, które można wybrać lub zdefiniować w bocznym panelu aplikacji.</p>
+
+    <p><u>Technologie wykorzystane w projekcie:</u> </p>
+    <ul class="list-group text-center">
+        <li class="list-group-item">Biblioteka JavaScript - <a href="https://trackingjs.com/">tracking.js</a></li>
+        <li class="list-group-item">Biblioteka przetwarzania obrazów - <a href="https://opencv.org/">OpenCV</a></li>
+        <li class="list-group-item">Biblioteka front'endowa - <a href="https://getbootstrap.com/">Bootstrap</a> </li>
+
+
+    </ul>
+    </blockquote>
+</div>
+
+<div style="height: 30px"></div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div>
+            <h5 class="card-text text-center">Projekt powstał w ramach Programu Operacyjnego Wiedza Edukacja Rozwój 2014-2020
+                „Rozwój kompetencji studentów informatyki, mechatroniki, automatyki i robotyki na Akademii Marynarki Wojennej w Gdyni”
+            - <a href="http://power.amw.gdynia.pl/"> Power AMW</a></h5>
+        </div>
+
+        <div class="card" style="width: 30rem;margin-top: 30px;">
+            <img class="card-img-top" src="{% static 'img/VisionLab/images/ToucanLogo.png' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Koordynator projektu - firma <a href="https://toucan-systems.pl/">Toucan Systems</a></h5>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div style="height: 70px"></div>
+
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© 2017/2018 Copyright: Grupa 145IC AMW </span>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+</body>
+</html>

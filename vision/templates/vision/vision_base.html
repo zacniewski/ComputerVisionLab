@@ -1,0 +1,64 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pl">
+<head>
+    <title>Computer Vision Laboratory</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/mdb.css' %}">
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/VisionLab/css/font-awesome.min.css' %}">
+
+    {% block additional_scripts_in_head %}
+    {% endblock additional_scripts_in_head %}
+
+</head>
+<body>
+
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top" id="navbar">
+        <a class="navbar-brand" href="{% url 'vision_lab' %}">CV Lab</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">O projekcie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autorzy</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    {% block main %}
+
+    {% endblock main %}
+
+    {% block stopka %}
+
+    {% endblock stopka %}
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="{% static 'js/VisionLab/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/VisionLab/js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/VisionLab/js/mdb.js' %}"></script>
+    <script src="{% static 'js/VisionLab/js/popper.min.js' %}"></script>
+    <script src="{% static 'js/VisionLab/js/fonts-awesome.js' %}"></script>
+    {% block additional_scripts_in_body %}
+    {% endblock additional_scripts_in_body %}
+
+</body>
+</html>

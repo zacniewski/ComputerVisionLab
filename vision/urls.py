@@ -1,0 +1,36 @@
+from django.urls import re_path, include
+from . import views
+
+urlpatterns = [
+    re_path(r'^detect-faces/$', views.detect_faces, name='detect_faces'),
+    re_path(r'^submit-image-with-faces/$', views.submit_image_with_faces, name='submit_image_with_faces'),
+    re_path(r'^thresholding/$', views.thresholding, name='thresholding'),
+    re_path(r'^submit-image-to-threshold/$', views.submit_image_with_threshold,
+            name='submit_image_with_threshold'),
+    re_path(r'^keypoints/$', views.keypoints, name='keypoints'),
+    re_path(r'^submit-image-to-keypoints/$', views.submit_image_to_keypoints,
+            name='submit_image_to_keypoints'),
+    re_path(r'^segmentation/$', views.segmentation, name='segmentation'),
+    re_path(r'^submit-image-to-segmentation/$', views.submit_image_to_segmentation,
+            name='submit_image_to_segmentation'),
+    re_path(r'^counting-coins/$', views.coins, name='coins'),
+    re_path(r'^submit-image-to-coins/$', views.submit_image_to_coins,
+            name='submit_image_to_coins'),
+    re_path(r'^detect-face-with-camera/$', views.detect_face_with_camera, name='detect_face_with_camera'),
+    re_path(r'^detect-face-with-camera/clown$', views.detect_face_with_camera_clown,
+            name='detect_face_with_camera_clown'),
+    re_path(r'^detect-face-with-camera/anonymous', views.detect_face_with_camera_anonymous,
+            name='detect_face_with_camera_anonymous'),
+    re_path(r'^detect-face-with-camera/bear$', views.detect_face_with_camera_bear,
+            name='detect_face_with_camera_bear'),
+    re_path(r'^detect-face-with-camera/politician$', views.detect_face_with_camera_politician,
+            name='detect_face_with_camera_politician'),
+    re_path(r'^detect-color-with-camera/$', views.detect_color_with_camera, name='detect_color_with_camera'),
+    re_path(r'^submit-canny/$', views.submit_canny, name='submit_canny'),
+    re_path(r'^canny-detector/(?P<thr1>[0-9]+)/(?P<thr2>[0-9]+)/$', views.canny, name='canny'),
+    re_path(r'^computer-vision-algorithms', views.computer_vision_algorithms,
+            name='computer_vision_algorithms'),
+    re_path(r'^about/$', views.about, name='about'),
+    re_path(r'^authors/$', views.authors, name='authors'),
+    re_path(r'^$', views.vision_lab, name='vision_lab')
+]
